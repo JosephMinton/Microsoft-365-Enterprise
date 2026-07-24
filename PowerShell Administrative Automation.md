@@ -43,7 +43,6 @@ repository. When prompted about installing from an untrusted repository, the ins
 COMMANDS USED
 
 ```powershell
-Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
 Install-Module Microsoft.Graph -Scope CurrentUser
 Get-InstalledModule Microsoft.Graph
 ```
