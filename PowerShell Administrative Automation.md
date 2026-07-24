@@ -64,13 +64,13 @@ READ SCOPE: TENANT EXPLORATION
 ```powershell
 Connect-MgGraph -Scopes "User.Read.All","Group.ReadWrite.All"
 ```
-
+<!--
 WRITE SCOPE: USER PROVISIONING AND MANAGEMENT
 
 ```powershell
 Connect-MgGraph -Scopes "User.ReadWrite.All","Directory.AccessAsUser.All"
 ```
-
+-->
 <img src="https://i.imgur.com/TTSkq4o.png"/>
 
 <p>After connecting, the current state of the tenant was reviewed by querying all existing users. This confirmed who was already in the tenant before any new provisioning work began.</p>
@@ -78,7 +78,7 @@ Connect-MgGraph -Scopes "User.ReadWrite.All","Directory.AccessAsUser.All"
 VIEWING EXISTING USERS
 
 ```powershell
-Get-MgUser -All | Select-Object DisplayName, Id, UserPrincipalName
+Get-MgUser -All | Select DisplayName, Id, UserPrincipalName
 ```
 
 <img src="https://i.imgur.com/Qs0Fp0M.png"/>
