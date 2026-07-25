@@ -87,7 +87,7 @@ Get-MgUser -All | Select DisplayName, Id, UserPrincipalName
 
 
 <h2>3. Single User Provisioning: Mikasa Ackerman</h2>
-<p>A single user account was provisioned entirely through PowerShell to demonstrate the full creation workflow. Before creating the user, available license SKUs in the tenant were queried to identify the correct license ID for assignment.</p>
+<p>A Microsoft Entra ID user account was provisioned entirely through Microsoft Graph PowerShell, demonstrating a full deployment identity provisioning workflow including user creation, license assignment, attribute management, and verification.</p>
 CHECK AVAILABLE LICENSES
 
 ```powershell
@@ -96,7 +96,7 @@ Get-MgSubscribedSku | Select -Property Sku*, ConsumedUnits -ExpandProperty Prepa
 
 <img src="https://i.imgur.com/9OFD26M.png"/>
 
-<p>The user was then created with a display name, UPN, mail nickname, usage location, and a password profile.
+<p>A password profile containing a temporary password was created, after which the user account was provisioned by specifying the display name, given name, surname, user principal name, mail nickname, usage location, and account status.</p>
 
 CREATE THE USER
 
@@ -114,7 +114,7 @@ New-MgUser -DisplayName "Mikasa Ackerman" `
 
 <img src="https://i.imgur.com/EjyHH4f.png"/>
 
-<p>The Microsoft 365 Business Premium license was then assigned to Mikasa and confirmed through an additional query.</p>
+<p>After the user account was created, a Microsoft 365 Business Premium license was assigned to Mikasa Ackerman using Microsoft Graph PowerShell. A follow-up query was then performed to verify that the license assignment completed successfully.</p>
 
 ASSIGN LICENSE
  ```powershell
@@ -127,7 +127,7 @@ Get-MgUserLicenseDetail -UserId "mikasaa@JosephMintonTech.onmicrosoft.com" | Sel
 
 <img src="https://i.imgur.com/ARqxGd5.png"/>
 
-<p>As a bonus step, the usage location was updated across all users in the tenant from US to France and back to US. This demonstrates how a bulk attribute change can be applied to every user in a single command rather than updating each account individually.</p>
+<p>To demonstrate bulk user administration, the UsageLocation attribute was updated across every user in the tenant using a PowerShell pipeline. The value was temporarily changed from US to FR and then restored to US, illustrating how administrative changes can be applied consistently across an entire directory without manual edits.</p>
 
 BULK LOCATION UPDATE
 ```powershell
