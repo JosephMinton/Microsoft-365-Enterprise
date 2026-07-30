@@ -71,12 +71,10 @@ configuration policies were applied to enforce security baselines across enrolle
 | Require MFA to register or join devices | Yes |
 | Maximum number of devices per user | 20 (reduced from default of 50) |
 
-<i>Why reduce the device limit?</i>
-<br />
-<i>The default limit of 50 devices per user is far more than any individual needs and can mask unauthorized enrollments. 
-Setting a realistic limit like 20 makes it easier to detect anomalies and prevents a compromised account from registering a large number of rogue devices.</i>
-<br />
-
+> *__Why reduce the device limit?__*
+>
+> *The default limit of 50 devices per user is far more than any individual needs and can mask unauthorized enrollments. 
+Setting a realistic limit like 20 makes it easier to detect anomalies and prevents a compromised account from registering a large number of rogue devices.*
 
 <img src="https://i.imgur.com/JSqbqQY.png" />
 
@@ -94,10 +92,9 @@ Setting a realistic limit like 20 makes it easier to detect anomalies and preven
   <li>4. Device joined and confirmed connected to the tenant</li>
 </ul>
 
-<i>Why use "Join this device to Microsoft Entra ID" instead of just entering an email?</i>
-<br />
-<i>Entering an email address at the top of the Connect screen only registers the device that only gives the organization limited management capability. Clicking "Join this device to Microsoft Entra ID" performs a full domain join, giving Intune complete management authority over the device including policy enforcement, compliance checks, and remote wipe.</i>
-<br />
+> *__Why use "Join this device to Microsoft Entra ID" instead of just entering an email?__*
+>
+> *Entering an email address at the top of the Connect screen only registers the device that only gives the organization limited management capability. Clicking "Join this device to Microsoft Entra ID" performs a full domain join, giving Intune complete management authority over the device including policy enforcement, compliance checks, and remote wipe.*
 
 <img src="https://i.imgur.com/agTFT7R.png" />
 
@@ -117,10 +114,9 @@ Setting a realistic limit like 20 makes it easier to detect anomalies and preven
   <li>Compliance column showed a mix of compliant and noncompliant states depending on whether the device met policy requirements</li>
 </ul>
 
-<i>Entra joined vs. Entra registered</i>
-<br />
-<i>A device that is Entra joined is fully under organizational control. The device simply signs in with a work account and Intune can push any policy to it. A device that is Entra registered is typically a personal device where the user has added a work account but the organization has limited management authority. This distinction directly affects what compliance policies and Conditional Access rules apply to that device.</i>
-<br />
+> *__Entra joined vs. Entra registered__*
+>
+> *A device that is Entra joined is fully under organizational control. The device simply signs in with a work account and Intune can push any policy to it. A device that is Entra registered is typically a personal device where the user has added a work account but the organization has limited management authority. This distinction directly affects what compliance policies and Conditional Access rules apply to that device.*
 
 <img src="https://i.imgur.com/lnmhzhu.png"/>
 
@@ -143,10 +139,9 @@ Setting a realistic limit like 20 makes it easier to detect anomalies and preven
 | `device.deviceOSType` | `-eq` | `"Windows"` |
 | `device.deviceOSVersion` | `-startsWith` | `"10.0.2"` |
 
-<i>Why use dynamic groups for device management?</i>
-<br />
-<i>In a growing organization, manually maintaining group membership is error prone and time consuming. Dynamic groups ensure that new devices are automatically included in the right policy scope the moment they enroll and meet the criteria. This way, no manual intervention is required. This is especially valuable for compliance policies and Autopilot deployment profiles.</i>
-<br />
+> *__Why use dynamic groups for device management?__*
+>
+> *In a growing organization, manually maintaining group membership is error prone and time consuming. Dynamic groups ensure that new devices are automatically included in the right policy scope the moment they enroll and meet the criteria. This way, no manual intervention is required. This is especially valuable for compliance policies and Autopilot deployment profiles.*
 
 <img src="https://i.imgur.com/4M0L2MJ.png"/>
 
@@ -178,10 +173,9 @@ Setting a realistic limit like 20 makes it easier to detect anomalies and preven
 | Apply device name template | Yes - AUTOPILOT-%RAND:3% |
 | Privacy settings and license terms | Hidden |
 
-<i>Why set the user account type to Standard?</i>
-<br />
-<i>Giving end users local administrator rights on their machines is a common security gap. The security flaw allows them to install unauthorized software, disable security tools, or make system changes that break compliance. Setting the account type to Standard through Autopilot ensures that no user arrives on a new device with more access than they need.</i>
-<br />
+> *__Why set the user account type to Standard?__*
+>
+> *Giving end users local administrator rights on their machines is a common security gap. The security flaw allows them to install unauthorized software, disable security tools, or make system changes that break compliance. Setting the account type to Standard through Autopilot ensures that no user arrives on a new device with more access than they need.*
 
 <img src="https://i.imgur.com/kCGooNL.png"/>
 
@@ -205,10 +199,9 @@ Setting a realistic limit like 20 makes it easier to detect anomalies and preven
 | Minimum OS version | Windows 11 |
 | Action on noncompliance | Mark device noncompliant - Immediately |
 
-<i>Why require BitLocker and Secure Boot?</i>
-<br />
-<i>BitLocker encrypts the device's hard drive which means if the device is lost or stolen, the data on it is unreadable without the recovery key. Secure Boot prevents the device from loading unauthorized software during startup, blocking a class of attacks that target the boot process before the operating system loads. Together, these two controls form the hardware security baseline for any managed Windows device.</i>
-<br />
+> *__Why require BitLocker and Secure Boot?__*
+>
+> *BitLocker encrypts the device's hard drive which means if the device is lost or stolen, the data on it is unreadable without the recovery key. Secure Boot prevents the device from loading unauthorized software during startup, blocking a class of attacks that target the boot process before the operating system loads. Together, these two controls form the hardware security baseline for any managed Windows device.*
 
 
 <img src="https://i.imgur.com/68AHz46.png"/>
@@ -238,10 +231,9 @@ Setting a realistic limit like 20 makes it easier to detect anomalies and preven
   </tr>
 </table>
 
-<i>Why lock down Control Panel settings?</i>
-<br />
-<i>Allowing users unrestricted access to Control Panel settings is a common source of both security incidents and support tickets. Users modifying network settings, installing apps outside approved channels, or disabling security features can undermine the entire compliance posture. Locking these settings through policy ensures the device stays in a known, controlled state regardless of who is using it.</i>
-<br />
+> *__Why lock down Control Panel settings?__*
+>
+> *Allowing users unrestricted access to Control Panel settings is a common source of both security incidents and support tickets. Users modifying network settings, installing apps outside approved channels, or disabling security features can undermine the entire compliance posture. Locking these settings through policy ensures the device stays in a known, controlled state regardless of who is using it.*
 
 <img src="https://i.imgur.com/3mVZuWB.png"/>
 
