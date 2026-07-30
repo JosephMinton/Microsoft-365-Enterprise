@@ -41,6 +41,8 @@ Centralized identity control is established through dynamic group membership, ro
 
   - [User Lifecycle & Licensing](https://github.com/JosephMinton/Microsoft-365-Enterprise-Simulation/blob/main/User%20Lifecycle%20%26%20Licensing.md) 👤 Managed the full user lifecycle inside a Microsoft 365 environment from assigning licenses and setting up group mailboxes to onboarding external contacts and securely offboarding departing employees. Access was intentionally scoped so users only had the tools and permissions they actually needed.
 
+  - [PowerShell Administrative Automation](https://github.com/JosephMinton/Microsoft-365-Enterprise-Simulation/blob/main/PowerShell%20Administrative%20Automation.md) 📦 Managed the full Microsoft 365 user lifecycle soley using PowerShell. Provisioned users individually and in bulk via CSV, assigned licenses, blocked sign-in, offboarded a user with license removal and account deletion, and restored a deleted account from the recycle bin.
+
   - [Security Governance](https://github.com/JosephMinton/Microsoft-365-Enterprise/blob/main/Security%20Governance.md) 🔒 Hardened a Microsoft 365 environment by configuring security policies across identity, messaging, collaboration, and data. Controlled who could access what, restricted how users communicate in Teams, and set up automated rules to manage email data over time.
 
     - [Conditional Access](https://github.com/JosephMinton/Microsoft-365-Enterprise/blob/main/Conditional%20Access.md) 🚧 Configured sign in policies that evaluate who is authenticating, from what device, and how. Only after that process, user has granted or blocked access accordingly. Implemented a two tier model covering baseline controls for all users and stricter policies for admins, staff, and guests.
@@ -54,7 +56,3 @@ Centralized identity control is established through dynamic group membership, ro
     - [Outlook Troubleshooting](https://github.com/JosephMinton/Microsoft-365-Enterprise-Simulation/blob/main/Outlook%20Troubleshooting.md) 📧 Diagnosed and resolved the most common Outlook issues seen in a support environment. Dealing with add-in conflicts, broken search, stale credentials causing repeated password prompts, and deep application issues requiring a Microsoft 365 Online Repair. Each scenario follows an escalation path starting with the least invasive fix first.
        
     - [Outlook Command Line Switches](https://github.com/JosephMinton/Microsoft-365-Enterprise-Simulation/blob/main/Outlook%20Command%20Line%20Switches.md) 📨 Used targeted startup switches to fix specific Outlook problems without touching the user profile. Covered /safe, /cleanclientrules, /cleanviews, /cleancategories, and /nopreview, each documented with before and after screenshots showing the impact.
-   
-<!--
-
-  - [PowerShell Administrative Automation](https://github.com/JosephMinton/Microsoft-365-Enterprise-Simulation/blob/main/PowerShell%20Administrative%20Automation.md) 📦 Managed the full Microsoft 365 user lifecycle soley using PowerShell. Provisioned users individually and in bulk via CSV, assigned licenses, blocked sign-in, offboarded a user with license removal and account deletion, and restored a deleted account from the recycle bin.
