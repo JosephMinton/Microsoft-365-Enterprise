@@ -13,9 +13,9 @@ minutes through the portal. This section covers the full user lifecycle managed 
 <ul>
 <li><strong>Install and verify the Microsoft Graph PowerShell SDK</li>
 <li><strong>Connect to the tenant securely using appropriate permission scopes</li>
-<li><strong>Provision a single user and assign a Business Premium license via CLI</li>
+<li><strong>Provision a single user and assign a Business Premium license via command line interface</li>
 <li><strong>Bulk provision 15 users from a CSV file in a single scripted operation</li>
-<li><strong>Block sign-in and enforce a password change for security operations</li>
+<li><strong>Block sign in and enforce a password change for security operations</li>
 <li><strong>Offboard a user by revoking license access and deleting the account</li>
 <li><strong>Restore a deleted user from the tenant recycle bin</li>
 </ul>
@@ -177,16 +177,15 @@ foreach ($user in $users) {
 
 <img src="https://i.imgur.com/NSMIVf2.png"/>
 
-<i>Why CSV bulk provisioning matters</i>
-<br />
-<i>In a real onboarding scenario involving dozens or hundreds of new employees, manually creating each account through the portal is not practical. A CSV based PowerShell script reduces a manual task that would take several hours to just a few minutes, eliminates data entry errors, and produces consistent results every time. The same script can be reused for future onboarding events by simply providing a new CSV file.</i>
-<br />
+> *__Why CSV bulk provisioning matters__*
+>
+> *In a real onboarding scenario involving dozens or hundreds of new employees, manually creating each account through the portal is not practical. A CSV based PowerShell script reduces a manual task that would take several hours to just a few minutes, eliminates data entry errors, and produces consistent results every time. The same script can be reused for future onboarding events by simply providing a new CSV file.*
 
 
-<h2>5. Security Operations - Block Sign-in & Password Management</h2>
-<h3>Two critical security operations were performed via PowerShell without using the admin portal - blocking a user's sign-in access and forcing a password change on next login.</h3>
-<h3><strong>Block Sign-in</strong></h3>
-<p>Mikasa Ackerman's account was disabled to immediately revoke her access to the tenant. This is the first action in any offboarding or security response scenario - it cuts off access instantly while the rest of the offboarding process continues.</p>
+<h2>5. Security Operations: Block Sign in & Password Management</h2>
+<h3>Two critical security operations were performed via PowerShell without using the admin portal. They were blocking a user's sign in access and forcing a password change on next login.</h3>
+<h3><strong>Block Sign in</strong></h3>
+<p>Mikasa Ackerman's account was disabled to immediately revoke her access to the tenant. This is the first action in any offboarding or security response scenario. It cuts off access instantly while the rest of the offboarding process continues.</p>
 
 DISABLE ACCOUNT
 ```powershell
@@ -196,7 +195,7 @@ Get-MgUser -UserId "mikasaa@JosephMintonTech.onmicrosoft.com" `
   -Property "DisplayName,AccountEnabled" | Select-Object DisplayName, AccountEnabled
 ```
 <img src="https://i.imgur.com/5DL1rAx.png"/>
-<p>The block was confirmed in the M365 Admin Center, where Mikasa's account appeared under the Sign-in status Blocked filter.</p>
+<p>The block was confirmed in the M365 Admin Center, where Mikasa's account appeared under the Sign in status Blocked filter.</p>
 <img src="https://i.imgur.com/ZEtQklX.png"/>
 
 <h3><strong>Force Password Change on Next Login</strong></h3>
@@ -214,14 +213,14 @@ Update-MgUser -UserId "mikasaa@JosephMintonTech.onmicrosoft.com" `
 
 
 
-<h2>6. Account Offboarding - John Doe</h2>
-<p>A complete offboarding workflow was executed for John Doe entirely through PowerShell. The process followed the correct 
-order of operations - verify the license, remove it, delete the account, then confirm the deletion.</p>
+<h2>6. Account Offboarding: John Doe</h2>
+<p>A complete offboarding workflow was executed for John Doe entirely through PowerShell. The correct 
+order of operations were to verify the license, remove it, delete the account, then confirm the deletion.</p>
 
 <h3><strong>License Verification and Removal</strong></h3>
 
 <p>Before removing the license, a query confirmed which license was assigned to John's account. The SPB license was then removed, releasing that 
-seat back into the available pool for reassignment. A follow-up query confirmed the removal was successful by returning an empty result.</p>
+seat back into the available pool for reassignment. A follow up query confirmed the removal was successful by returning an empty result.</p>
 
 PRE-REMOVAL VERIFICATION
 ```powershell
@@ -242,7 +241,7 @@ Get-MgUserLicenseDetail -UserId "johnd@JosephMintonTech.onmicrosoft.com"
 <img src="https://i.imgur.com/ubiYPHF.png"/>
 
 <h3><strong>Account Deletion and Verification</strong></h3>
-<p>John's account was then deleted and confirmed in both the PowerShell recycle bin query and the M365 Admin Center deleted users list.</p>
+<p>John's account was then deleted and confirmed in both the PowerShell recycle bin query and the Microsoft 365 Admin Center deleted users list.</p>
 
 DELETE ACCOUNT
 ```powershell
@@ -256,7 +255,7 @@ Get-MgDirectoryDeletedItemAsUser -All
 
 
 
-<h2>7. Restoring a Deleted User - John Doe</h2>
+<h2>7. Restoring a Deleted User: John Doe</h2>
 <p>Deleted users in Microsoft 365 are held in a recycle bin for 30 days before being permanently removed. This window allows administrators to recover accounts deleted by mistake. 
 John Doe's object ID was retrieved from the recycle bin and used to restore the account.</p>
 
@@ -271,11 +270,10 @@ Get-MgUser -UserId "johnd@JosephMintonTech.onmicrosoft.com" `
 ```
 <img src="https://i.imgur.com/pIJKRzh.png"/>
 
-<i>Why does AccountEnabled return False after restore?</i>
-<br />
-<i>When an account is restored from the recycle bin, it comes back exactly as it was when it was deleted - including the disabled state from offboarding. This is intentional and expected. AccountEnabled: 
-False simply confirms the restore was successful. The account exists again in the tenant but sign-in remains blocked until an administrator explicitly reactivates it, which prevents an accidentally restored account from immediately gaining access.</i>
-<br />
+> *__Why does AccountEnabled return False after restore?__*
+>
+> *When an account is restored from the recycle bin, it comes back exactly as it was when it was deleted - including the disabled state from offboarding. This is intentional and expected. AccountEnabled: 
+False simply confirms the restore was successful. The account exists again in the tenant but sign-in remains blocked until an administrator explicitly reactivates it, which prevents an accidentally restored account from immediately gaining access.*
 
 
 <h1>Key Takeaways</h1>
@@ -285,6 +283,6 @@ False simply confirms the restore was successful. The account exists again in th
 <li><strong>Demonstrated bulk attribute management by updating usage location across all tenant users in a single pipeline command</li>
 <li><strong>Bulk provisioned 15 users from a structured CSV file using a PowerShell loop that created each account and assigned a license automatically</li>
 <li><strong>Blocked sign-in access and enforced a forced password change via PowerShell as security response operations</li>
-<li><strong>Executed a complete offboarding workflow - license removal, account deletion, and recycle bin verification - entirely from the CLI</li>
-<li><strong>Restored a deleted user from the 30-day recycle bin using the object ID retrieved from a directory query</li>
+<li><strong>Executed a complete offboarding workflow: License removal, account deletion, and recycle bin verification entirely from the command line interface</li>
+<li><strong>Restored a deleted user from the 30 day recycle bin using the object ID retrieved from a directory query</li>
 </ul>
