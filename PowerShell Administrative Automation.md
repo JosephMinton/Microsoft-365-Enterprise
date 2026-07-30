@@ -94,9 +94,9 @@ CHECK AVAILABLE LICENSES
 Get-MgSubscribedSku | Select -Property Sku*, ConsumedUnits -ExpandProperty PrepaidUnits | Format-List
 ```
 
-<img src="https://i.imgur.com/9OFD26M.png"/>
+<img src="https://i.imgur.com/EjyHH4f.png"/>
 
-<p>A password profile containing a temporary password was created, after which the user account was provisioned by specifying the display name, given name, surname, user principal name, mail nickname, usage location, and account status.</p>
+Before creating the user, the tenant's subscribed Microsoft 365 license SKUs were queried to verify license availability and retrieve the appropriate SKU for assignment.
 
 CREATE THE USER
 
@@ -112,9 +112,9 @@ New-MgUser -DisplayName "Mikasa Ackerman" `
   -AccountEnabled:$true
 ```
 
-<img src="https://i.imgur.com/EjyHH4f.png"/>
+<img src="https://i.imgur.com/9OFD26M.png"/>
 
-<p>After the user account was created, a Microsoft 365 Business Premium license was assigned to Mikasa Ackerman using Microsoft Graph PowerShell. A follow-up query was then performed to verify that the license assignment completed successfully.</p>
+<p>A password profile containing a temporary password was created, after which the user account was provisioned by specifying the display name, given name, surname, user principal name, mail nickname, usage location, and account status.</p>
 
 ASSIGN LICENSE
  ```powershell
@@ -127,7 +127,7 @@ Get-MgUserLicenseDetail -UserId "mikasaa@JosephMintonTech.onmicrosoft.com" | Sel
 
 <img src="https://i.imgur.com/ARqxGd5.png"/>
 
-<p>To demonstrate bulk user administration, the UsageLocation attribute was updated across every user in the tenant using a PowerShell pipeline. The value was temporarily changed from US to FR and then restored to US, illustrating how administrative changes can be applied consistently across an entire directory without manual edits.</p>
+<p>After the user account was created, a Microsoft 365 Business Premium license was assigned to Mikasa Ackerman using Microsoft Graph PowerShell. A follow-up query was then performed to verify that the license assignment completed successfully.</p>
 
 BULK LOCATION UPDATE
 ```powershell
@@ -136,8 +136,11 @@ Get-MgUser | ForEach-Object { Update-MgUser -UserId $_.Id -UsageLocation "US" }
 ```
 
 <img src="https://i.imgur.com/bPVcMva.png"/>
-<p>Mikasa's account was then verified in the Microsoft 365 Admin Center, confirming her profile showed the correct license and United States location.</p>
+<p>To demonstrate bulk user administration, the UsageLocation attribute was updated across every user in the tenant using a PowerShell pipeline. The value was temporarily changed from US to FR and then restored to US, illustrating how administrative changes can be applied consistently across an entire directory without manual edits.</p>
+
 <img src="https://i.imgur.com/Vg82Sir.png"/>
+
+<p>Mikasa's account was then verified in the Microsoft 365 Admin Center, confirming her profile showed the correct license and United States location.</p>
 
 
 <h2>4. Bulk User Provisioning: 15 Users via CSV</h2>
