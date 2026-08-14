@@ -202,19 +202,19 @@ External sharing was tested by sharing the site with a personal Gmail account, c
 
 # [Conditional Access](https://github.com/JosephMinton/Microsoft-365-Enterprise/blob/main/Conditional%20Access.md) 🚧
 
-# 7. [Intune: Device Compliance & MDM](https://github.com/JosephMinton/Microsoft-365-Enterprise-Simulation/blob/main/Intune%3A%20Device%20Compliance%20%26%20MDM.md) 📱
+# 7. [Intune: Device Compliance & MDM](https://github.com/JosephMinton/Microsoft-365-Enterprise-Simulation/blob/main/Intune%20Device%20Compliance%20%26%20MDM.md) 📱
 <p>Microsoft Intune configuration is covered in full in the dedicated Intune subsection link down below. That section documents device enrollment, compliance policies, and integration with Conditional Access for device based access enforcement.</p>
 
 <img src="https://i.imgur.com/zrVzG7V.png" alt="Intune Dashboard"/>
 
-# [Intune: Device Compliance & MDM](https://github.com/JosephMinton/Microsoft-365-Enterprise-Simulation/blob/main/Intune%3A%20Device%20Compliance%20%26%20MDM.md) 📱
+# [Intune: Device Compliance & MDM](https://github.com/JosephMinton/Microsoft-365-Enterprise-Simulation/blob/main/Intune%20Device%20Compliance%20%26%20MDM.md) 📱
 
-# 8. [Purview: Data Loss Prevention](https://github.com/JosephMinton/Microsoft-365-Enterprise-Simulation/blob/main/Purview%20Data%20Loss%20Prevention%20(DLP).md) 🔍
+# 8. [Purview: Data Loss Prevention](https://github.com/JosephMinton/Microsoft-365-Enterprise-Simulation/blob/main/Purview%20Data%20Loss%20Prevention.md) 🔍
 <p>Data Loss Prevention configuration is covered in the dedicated subsection in the link below. That section documents the PCI DSS policy build, multi-location coverage across Exchange, SharePoint, OneDrive, and Teams, and real-world validation using a live Outlook Policy Tip test.</p>
 
 <img src="https://i.imgur.com/A3uwt7g.png" alt="Purview Dashboard"/>
 
-# [Purview: Data Loss Prevention](https://github.com/JosephMinton/Microsoft-365-Enterprise-Simulation/blob/main/Purview%20Data%20Loss%20Prevention%20(DLP).md) 🔍
+# [Purview: Data Loss Prevention](https://github.com/JosephMinton/Microsoft-365-Enterprise-Simulation/blob/main/Purview%20Data%20Loss%20Prevention.md) 🔍
 
 
 <h1>Key Takeaways</h1>
