@@ -11,7 +11,7 @@ This project simulates a comprehensive Microsoft 365 enterprise environment, foc
   </tr>
   <tr>
     <td><b>Microsoft 365 Admin Center</b></td>
-    <td><b>Microsoft Defender</b></td>
+    <td><b>Data Loss Prevention</b></td>
   </tr>
   <tr>
     <td><b>Microsoft Entra ID (Azure AD)</b></td>
@@ -32,6 +32,10 @@ This project simulates a comprehensive Microsoft 365 enterprise environment, foc
   <tr>
     <td><b>Microsoft Outlook</b></td>
     <td><b>Conditional Access</b></td>
+  </tr>
+    <tr>
+    <td><b>Microsoft Defender</b></td>
+    <td><b>Autopilot</b></td>
   </tr>
 </table>
 
